@@ -8,7 +8,14 @@
 </head>
 <body>
     <h1>Hello World</h1>
-    <p>{{ $res }}</p>
-    <p>{{ $name }}</p>
+
+    {{
+    /**
+    * Формирование ссылок
+     */
+    route('post', ['id' => 3, 'slug' => 'slug'])
+}}
+    <br>
+{{route('admin.post', ['id' => 1])}}
 </body>
 </html>

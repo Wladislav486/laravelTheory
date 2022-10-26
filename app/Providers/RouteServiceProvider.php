@@ -25,13 +25,14 @@ class RouteServiceProvider extends ServiceProvider
 
     /**
      * Define your route model bindings, pattern filters, etc.
-     *
+     * Валидация параметров глобально
      * @return void
      */
     public function boot()
     {
         //
-
+        Route::pattern('id', '[0-9]+');
+        Route::pattern('slug', '[a-zA-Z0-9-]+');
         parent::boot();
     }
 
