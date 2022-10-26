@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
 
 //Route::get('/', function (){
 //    return '<h1>hello world</h1>';
@@ -68,7 +68,7 @@ Route::get('/', function () {
 
 /**
  * именнованые маршруты
- * централизация изменения url
+ * централизация изменения url для работы с формами
  */
 //Route::match(['post', 'get'],'/contact', function (){
 Route::match(['post', 'get'],'/contact2', function (){
@@ -89,6 +89,113 @@ Route::view('/test', 'test', ['test' => 'Test data']);
  * редиректы
  */
 Route::redirect('/about', '/contact2', 301);
+
+
+
+
+/**
+ * параметры маршрута
+ */
+//Route::get('/post/{id}/{slug}', function ($id, $slug){
+//    return "Post $id | $slug";
+//})->where(['id' => '[0-9]+', 'slug' => '[a-zA-Z0-9-]+']);
+
+
+/**
+ * необязательные параметры маршрута
+ * знак вопроса делает необязательным
+ */
+Route::get('/post/{id?}/{slug?}', function ($id = 0, $slug = ''){
+    return "Post $id | $slug";
+});
+
+
+
+
+/**
+ * группировка правил
+ * ко всем url добавится впереди admin
+ */
+
+Route::prefix('admin')->group(function (){
+    Route::get('/posts', function (){
+        return "Post list";
+    });
+
+    Route::get('/posts/create', function (){
+        return "Post create";
+    });
+
+    Route::get('/posts/{id}/edit', function ($id){
+        return "Post Post $id";
+    });
+});
+
+
+
+/**
+ * Форма(action=POST|GET). Подмена метода передачи данных.(action=PUT|DELETE...)
+ */
+
+Route::any('/contact_edit_method', function (){
+    if(!empty($_POST)){
+        dump($_POST);
+    }
+    return view('contact_edit_method');
+})->name('contact_edit_method');
+
+
+
+
+/**
+ * приоритет правил по url
+ * более конкретные правила распологать выше более общих
+ */
+
+//Route::get('/post/{id}/edit', function ($id){
+//    return "Post Post $id";
+//});
+//
+//Route::get('/post/{id?}/{slug?}', function ($id = 0, $slug = ''){
+//    return "Post $id | $slug";
+//});
+
+
+/**
+ * приоритет правил по названию маршрутов
+ */
+
+Route::get('/post/{id}/{slug?}', function ($id = 0, $slug = ''){
+    return "Post $id | $slug";
+})->name('post');
+
+//перезапишет верхнее если не прописать имя маршрута
+Route::prefix('admin')->name('admin.')->group(function (){
+    Route::get('/post/{id}/edit', function ($id){
+        return "Post Post $id";
+    })->name('post');
+});
+
+
+/**
+ * перенаправление 404
+ */
+Route::fallback(function (){
+//   return redirect()->route('home');
+    abort('404', 'Page not found');
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
