@@ -33,6 +33,12 @@ class RouteServiceProvider extends ServiceProvider
         //
         Route::pattern('id', '[0-9]+');
         Route::pattern('slug', '[a-zA-Z0-9-]+');
+        /**
+         * контроллер ресурсов параметер post передаваемый при просмотре,
+         * изменении и удалении записи - валидация
+         */
+        Route::pattern('post', '[0-9]+');
+
         parent::boot();
     }
 

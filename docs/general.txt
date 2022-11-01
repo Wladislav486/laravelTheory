@@ -1,3 +1,11 @@
+Ресурсы
+https://laravel.com/
+https://laravel.su/
+https://www.jetbrains.com/ru-ru/phpstorm/
+https://netbeans.org/
+https://ospanel.io/
+https://www.apachefriends.org/ru/index.html
+
 
 Паттерн mvc
 model - структура в которой представленны данные, полученные по запросу к хранилищу
@@ -15,7 +23,7 @@ controller продавец, собирает необходимое кол-во
 app - ядро приложения
 - console классы инструменты artisan
 - Exceptions обработчики исключений
-- Providers сервис провайдеры, 
+- Providers сервис провайдеры,
 - http находятся контроллеры и посредники
 - модели лежат в корне папки app
 

@@ -22,7 +22,20 @@ Route::get('/test', 'HomeController@test');
 Route::get('/test2', 'Test\TestController@index');
 Route::get('/page/{slug}', 'PageController@show');
 
-
+/**
+ * контроллеры ресурсов
+ * https://laravel.su/docs/8.x/controllers
+    https://skr.sh/sGhnEppJB0a
+ */
+Route::resource('/posts', 'PostController');
+/**
+ * переопределение названия параметра при
+ * просмотре, изменении и удалении записи
+ * поменять в ссылках при переопределении
+ */
+//Route::resource('/posts', 'PostController', ['parameters' => [
+//    'posts' => 'id'
+//]]);
 
 
 /**
