@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 /**
  * контроллеры
  */
-Route::get('/', 'HomeController@index');
-Route::get('/test', 'HomeController@test');
-Route::get('/test2', 'Test\TestController@index');
-Route::get('/page/{slug}', 'PageController@show');
+//Route::get('/', 'HomeController@index');
+//Route::get('/test', 'HomeController@test');
+//Route::get('/test2', 'Test\TestController@index');
+//Route::get('/page/{slug}', 'PageController@show');
 
 /**
  * контроллеры ресурсов
@@ -47,8 +47,10 @@ Route::fallback(function (){
 });
 
 
-
-
+/**
+ * queryBuilder
+ */
+Route::get('/', 'QueryBuilderController@index');
 
 
 
