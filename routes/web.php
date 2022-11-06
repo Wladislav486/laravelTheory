@@ -50,10 +50,12 @@ Route::fallback(function (){
 /**
  * queryBuilder
  */
-Route::get('/', 'QueryBuilderController@index');
+//Route::get('/', 'QueryBuilderController@index');
 
-
-
+/**
+ * orm
+ */
+Route::get('/', 'OrmController@index');
 
 
 
