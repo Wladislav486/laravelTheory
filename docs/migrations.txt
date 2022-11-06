@@ -1,0 +1,17 @@
+миграции
+- контроль версий для бд
+- для того чтобы не делать дамп бд для работы с проектом с другого компьютера
+- лежат database/migrations
+
+команды
+php artisan migrate - выполнить все миграции
+php artisan make:migration create_posts_table - создать миграцию
+- опции:
+--create=name_table - создать таблицу
+--table - работать с таблицей
+php artisan migrate:rollback - откатить миграции установленные на прошлом шаге
+php artisan migrate:rollback --step=5 - откатить на 5 шагов
+php artisan migrate:reset - откатить все миграции
+php artisan migrate:refresh - откатить+запустить все миграции
+
+
