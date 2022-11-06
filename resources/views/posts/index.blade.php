@@ -16,7 +16,6 @@
         // анные правила прописаны в таблличке https://skr.sh/sGhnEppJB0a
     route('posts.show', ['post' => 1])}}">show 1</a><br>
         <a href="{{route('posts.edit', ['post' => 1])}}">edit 1</a><br>
-        <a href="{{route('posts.destroy', ['post' => 1])}}">delete 1</a>
         <form action="{{route('posts.destroy', ['post' => 1])}}" method="post">
             @csrf
             @method('DELETE')
