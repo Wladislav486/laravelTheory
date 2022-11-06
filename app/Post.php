@@ -3,7 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
+/**
+ * Class Post
+ * @package App
+ * @mixin Builder
+ */
 class Post extends Model
 {
     /**
@@ -41,9 +47,25 @@ class Post extends Model
      * @var string[]
      * заполнение по дефолту полей
      */
-    protected $attributes = [
-        'content' => 'Lorem ipsum...',
+//    protected $attributes = [
+//        'content' => 'Lorem ipsum...',
+//    ];
+
+    /**
+     * @var string[]
+     * поля к которым у пользователя есть доступ
+     */
+    protected $fillable = [
+        'title'
     ];
+
+    /**
+     * @var array
+     * поля к которым у пользователя нет доступа
+     */
+//    protected $guarded = [
+//
+//    ];
 
 
 }
