@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\City;
 use App\Country;
 use App\Post;
+use App\Rubric;
 use Illuminate\Support\Facades\DB;
 
 class OrmController extends Controller
@@ -80,7 +81,21 @@ class OrmController extends Controller
 
         //dd($data);
 
+        /**
+         * One To One
+         */
+//        $post = Post::find(2);
+//        dump($post, $post->rubric, $post->rubric->title);
+//        $rubric = Rubric::find(3);
+//        dump($rubric->title, $rubric->post->title);
 
+        /**
+         * One To Many
+         */
+//        $rubric = Rubric::find(1);
+//        dump($rubric->posts);
+//        $post = Post::find(3);
+//        dump($post, $post->rubric, $post->rubric->title);
     }
 
 
