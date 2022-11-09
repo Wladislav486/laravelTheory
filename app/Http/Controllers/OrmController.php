@@ -8,6 +8,7 @@ use App\City;
 use App\Country;
 use App\Post;
 use App\Rubric;
+use App\Tag;
 use Illuminate\Support\Facades\DB;
 
 class OrmController extends Controller
@@ -91,11 +92,67 @@ class OrmController extends Controller
 
         /**
          * One To Many
+         * Одной rubric принадлежит несколько post
+         * Rubric->posts - ссылка на посты рубрики
+         * Post->rubric - ссылка на рубрику поста
          */
 //        $rubric = Rubric::find(1);
 //        dump($rubric->posts);
 //        $post = Post::find(3);
 //        dump($post, $post->rubric, $post->rubric->title);
+
+        // получение постов рубрики 1 по
+//        $posts = Rubric::find(1)
+//            ->posts()
+//            ->select('title')
+//            ->where('id', '>', '2')
+//            ->get();
+//        dump($posts);
+
+
+        /**
+         * получаем посты
+         * ленивая загрузка - при обращении к значению связной сущности выполняется запрос
+         * при каждом обращении к связной таблице будет происходить запрос
+         */
+//        $posts = Post::where('id', '>', 1)->get();
+//        foreach ($posts as $post){
+//            //"select * from `rubrics` where `id` = {$post->id} limit 1"
+//            dump($post->title, $post->rubric->title);
+//        }
+
+        /**
+         * получаем посты
+         * жадная загрузка - получение одним запросом связных сущностей
+         * with(название метода, хранящего ссылку на связную сущность)
+         * один запрос по фильтру для разового получения всех связных сущностей
+         */
+
+        // select * from `rubrics` where `id` in (1, 3)
+//        $posts = Post::with('rubric')
+//            ->where('id', '>', 1)
+//            ->get();
+//        foreach ($posts as $post){
+//            dump($post->title, $post->rubric->title);
+//        }
+
+
+
+        /**
+         * Many To Many
+         */
+        // получаем пост и его теги
+//        $post = Post::find(1);
+//        dump($post->title);
+//        foreach ($post->tags as $tag){
+//            dump($tag->title);
+//        }
+        // получаем тег и его посты
+//        $tag = Tag::find(1);
+//        dump($tag->title);
+//        foreach ($tag->posts as $post){
+//            dump($post->title);
+//        }
     }
 
 
