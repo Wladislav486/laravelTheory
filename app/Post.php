@@ -68,4 +68,10 @@ class Post extends Model
 //    ];
 
 
+
+    public function rubric()
+    {
+        return $this->belongsTo(Rubric::class);
+    }
+
 }
