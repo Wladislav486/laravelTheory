@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Blade</title>
+    <title>@section('title') My Site @show</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href="css/main.css" rel="stylesheet">
 </head>
@@ -25,7 +25,6 @@
                     <ul class="list-unstyled">
                         <li><a href="{{route('blade1')}}" class="text-white">blade1</a></li>
                         <li><a href="{{route('blade2')}}" class="text-white">blade2</a></li>
-                        <li><a href="#" class="text-white">Email me</a></li>
                     </ul>
                 </div>
             </div>

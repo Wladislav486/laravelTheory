@@ -1,10 +1,12 @@
 @extends('layouts.layout')
 
+@section('title')@parent:: {{$title}} @endsection
 
 @section('content')
     <section class="jumbotron text-center">
         <div class="container">
-            <h1>Blade</h1>
+            <h1>{!! mb_strtoupper($h1) !!}</h1>
+            {{--$title--}}
         </div>
     </section>
 
@@ -151,4 +153,5 @@
             </div>
         </div>
     </div>
+
 @endsection
