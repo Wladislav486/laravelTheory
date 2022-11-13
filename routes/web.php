@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
  * https://laravel.su/docs/8.x/controllers
     https://skr.sh/sGhnEppJB0a
  */
-Route::resource('/posts', 'PostController');
+//Route::resource('/posts', 'PostController');
 /**
  * переопределение названия параметра при
  * просмотре, изменении и удалении записи
@@ -60,10 +60,18 @@ Route::fallback(function (){
 /**
  * аблонизатор blade
  */
-Route::get('/', 'BladeController@index')->name('blade1');
-Route::get('/blade', 'Blade1Controller@index')->name('blade2');
+//Route::get('/', 'BladeController@index')->name('blade1');
+//Route::get('/blade', 'Blade1Controller@index')->name('blade2');
 
-
+/**
+ * валидация
+ */
+// показ списка постов
+Route::get('/', 'Posts\HomeController@index')->name('home');
+//показ формы
+Route::get('/create', 'Posts\HomeController@create')->name('posts.create');
+// сохранение формы
+Route::post('/', 'Posts\HomeController@store')->name('posts.store');
 
 
 

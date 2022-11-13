@@ -23,8 +23,8 @@
                 <div class="col-sm-4 offset-md-1 py-4">
                     <h4 class="text-white">Contact</h4>
                     <ul class="list-unstyled">
-                        <li><a href="{{route('blade1')}}" class="text-white">blade1</a></li>
-                        <li><a href="{{route('blade2')}}" class="text-white">blade2</a></li>
+                        <li><a href="{{route('home')}}" class="text-white">home</a></li>
+                        <li><a href="{{route('posts.create')}}" class="text-white">create</a></li>
                     </ul>
                 </div>
             </div>
@@ -45,6 +45,9 @@
 </header>
 
 <main role="main">
+    <div class="container">
+        @include('layouts.errors')
+    </div>
     @yield('content')
 </main>
 
