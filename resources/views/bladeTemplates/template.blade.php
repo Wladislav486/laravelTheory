@@ -2,11 +2,32 @@
 
 @section('title')@parent:: {{$title}} @endsection
 
+@section('header')
+    @parent
+@endsection
+
 @section('content')
     <section class="jumbotron text-center">
         <div class="container">
             <h1>{!! mb_strtoupper($h1) !!}</h1>
             {{--$title--}}
+          {{--  {{count($data1)}}
+
+            @if(count($data1) > 20)
+                Count > 20
+            @elseif(count($data1) < 20)
+                Count < 20
+            @else
+                Count = 20
+            @endif--}}
+            {{--Проверка на прод--}}
+{{--            @production
+ --}}{{--               <h1>PRODUCTION</h1>--}}{{--
+            @endproduction--}}
+            {{--проверка переменных среды--}}
+{{--            @env('local')
+                <h1>LOCAL</h1>
+            @endenv--}}
         </div>
     </section>
 
