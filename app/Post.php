@@ -55,9 +55,9 @@ class Post extends Model
      * @var string[]
      * поля к которым у пользователя есть доступ
      */
-    protected $fillable = [
-        'title'
-    ];
+//    protected $fillable = [
+//        'title'
+//    ];
 
     /**
      * @var array
@@ -77,6 +77,12 @@ class Post extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+
+    public function getPostDate()
+    {
+        return \Carbon\Carbon::parse($this->created_at)->diffForHumans();
     }
 
 }

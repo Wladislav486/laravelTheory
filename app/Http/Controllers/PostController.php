@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
 
-    public function __construct(Request $request)
+/*    public function __construct(Request $request)
     {
         dump($request->route()->getName());
-    }
+    }*/
 
     /**
      * Display a listing of the resource.
@@ -18,8 +19,10 @@ class PostController extends Controller
      */
     public function index()
     {
+        $posts = Post::orderBy('id', 'desc')->get();
+        $title = 'Posts list';
         // posts это папочка в views
-        return view('posts.index');
+        return view('posts.index', compact('title', 'posts'));
     }
 
     /**
