@@ -55,9 +55,9 @@ class Post extends Model
      * @var string[]
      * поля к которым у пользователя есть доступ
      */
-//    protected $fillable = [
-//        'title'
-//    ];
+    protected $fillable = [
+        'title', 'content', 'rubric_id'
+    ];
 
     /**
      * @var array
