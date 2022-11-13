@@ -13,8 +13,36 @@ use Illuminate\Support\Facades\Validator;
 class HomeController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
+        //запись в сессию
+       // $request->session()->put('test', 'Test value');
+//        session(['cart' => [
+//            'id' => 1,
+//            'title1' => 'Product 1',
+//            'title2' => 'Product 2',
+//        ]]);
+
+        //получение значений из сесси по ключу
+//        dump(session('test'));
+//        dump(session('cart'))['id'];
+//        dump($request->session()->get('cart')['id']);
+
+        //добавление данных в сессию
+//        $request->session()->push('cart', ['id' => 3, 'title' => 'Title 3']);
+
+        //удаление данных из сессии с выводом
+       // dump($request->session()->pull('test'));
+        //без вывода
+        //$request->session()->forget('test');
+
+        // очистка всех данных из сессии
+        //$request->session()->flush();
+
+
+        //dump($request->session()->all());
+        //dump(session()->all());
+
         $posts = Post::orderBy('id', 'desc')->get();
         $title = 'Posts list';
 
@@ -66,6 +94,10 @@ class HomeController extends Controller
          * массовое присваивание
          */
         Post::create($request->all());
+        /**
+         * флеш сообщения
+         */
+        $request->session()->flash('success', 'Данные сохранены!');
         return redirect()->route('home');
     }
 
