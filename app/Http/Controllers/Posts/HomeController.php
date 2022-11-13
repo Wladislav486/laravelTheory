@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use App\Rubric;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
@@ -15,6 +16,9 @@ class HomeController extends Controller
 
     public function index(Request $request)
     {
+        /**
+         * сессии
+         */
         //запись в сессию
        // $request->session()->put('test', 'Test value');
 //        session(['cart' => [
@@ -42,6 +46,15 @@ class HomeController extends Controller
 
         //dump($request->session()->all());
         //dump(session()->all());
+
+
+        /**
+         * куки
+         */
+       // Cookie::queue('test', 'Test value', 1);
+       // Cookie::queue(Cookie::forget('test'));
+      //  dump(Cookie::get('test'));
+      //  dump($request->cookie('test'));
 
         $posts = Post::orderBy('id', 'desc')->get();
         $title = 'Posts list';
