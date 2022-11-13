@@ -55,10 +55,13 @@ Route::fallback(function (){
 /**
  * orm
  */
-Route::get('/', 'OrmController@index');
+//Route::get('/', 'OrmController@index');
 
-
-
+/**
+ * аблонизатор blade
+ */
+Route::get('/', 'BladeController@index')->name('blade1');
+Route::get('/blade', 'Blade1Controller@index')->name('blade2');
 
 
 
