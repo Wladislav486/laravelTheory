@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use App\Rubric;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
 
@@ -56,7 +57,34 @@ class HomeController extends Controller
       //  dump(Cookie::get('test'));
       //  dump($request->cookie('test'));
 
-        $posts = Post::orderBy('id', 'desc')->get();
+
+        /**
+         * Кеш
+         */
+        //положить в кеш на 3 мин
+        //Cache::put('key', 'Value', 240);
+        //положить на неограниченный срок
+        //Cache::put('key', 'Value');
+        //Cache::forever('key', 'Value');
+       //dump(Cache::get('key'));
+
+        //очишение кеша
+//        Cache::put('key', 'Value', 240);
+        //dump(Cache::pull('key'));
+//        Cache::forget('key');
+//        dump(Cache::get('key'));
+        //очишение кеша полностью
+//        Cache::flush();
+
+        //кеширование запросов к бд
+        if(Cache::has('posts')){
+            $posts = Cache::get('posts');
+        }else{
+            $posts = Post::orderBy('id', 'desc')->get();
+            Cache::put('posts', $posts);
+        }
+
+
         $title = 'Posts list';
 
         return view('valid.index', compact('title', 'posts'));
