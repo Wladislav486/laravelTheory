@@ -1,6 +1,6 @@
 Ресурсы
 https://laravel.com/
-https://laravel.su/
+https://laravel.su/docs/7.x/installation
 https://www.jetbrains.com/ru-ru/phpstorm/
 https://netbeans.org/
 https://ospanel.io/

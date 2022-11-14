@@ -75,4 +75,4 @@ Route::post('/', 'Posts\HomeController@store')->name('posts.store');
 
 
 
-
+Route::match(['get', 'post'], '/send', 'ContactController@send')->name('send');
