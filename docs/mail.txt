@@ -1,0 +1,27 @@
+Настройка работы с почтой
+.env
+Дока
+https://laravel.su/docs/8.x/mail
+Генерация класса отправки почты
+php artisan make:mail TestMail
+Сбросить кеш
+php artisan config:cache
+
+1 Отправить письмо
+ Mail::to('wlad4206@gmail.com')->send(new TestMail());
+2 в TestMail->build
+определяется вид с вёрсткой письма
+
+
+
+
+
+
+
+
+
+
+
+
+
+
