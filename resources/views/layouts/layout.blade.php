@@ -25,6 +25,10 @@
                     <ul class="list-unstyled">
                         <li><a href="{{route('home')}}" class="text-white">home</a></li>
                         <li><a href="{{route('posts.create')}}" class="text-white">create</a></li>
+                         <li><a href="{{route('register.create')}}" class="text-white">register</a></li>
+                        @php
+                        dump(\Illuminate\Support\Facades\Auth::check());
+                        @endphp
                     </ul>
                 </div>
             </div>

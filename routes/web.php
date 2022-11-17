@@ -76,3 +76,18 @@ Route::post('/', 'Posts\HomeController@store')->name('posts.store');
 
 
 Route::match(['get', 'post'], '/send', 'ContactController@send')->name('send');
+
+
+Route::match(['get', 'post'], '/send', 'ContactController@send')->name('send');
+
+/**
+ * регистрация
+ */
+Route::get('/register', 'UserController@create')->name('register.create');
+Route::post('/register', 'UserController@store')->name('register.store');
+
+
+
+
+
+
