@@ -22,12 +22,20 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
+            'avatar' => 'nullable|image'
         ]);
+
+        //сохранение файла
+        if($request->hasFile('avatar')){
+            $dir = date('Y-m-d');
+            $path = $request->file('avatar')->store('images/' . $dir, 'public');
+        }
         //регистрация
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'avatar' => $path ?? null
         ]);
         //авторизация
         Auth::login($user);
