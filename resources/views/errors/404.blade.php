@@ -7,6 +7,6 @@
     <title>Error</title>
 </head>
 <body>
-{{$exception->getMessage()}}
+<h1>Not found</h1>
 </body>
 </html>
