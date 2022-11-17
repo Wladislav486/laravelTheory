@@ -1,0 +1,21 @@
+Дока
+https://laravel.su/docs/7.x/requests#files
+https://laravel.su/docs/7.x/filesystem
+Валидация
+- проверка файла на картинку
+https://laravel.su/docs/7.x/validation#rule-image
+Сохранение файла
+https://laravel.su/docs/7.x/requests#storing-uploaded-files
+настроить хранителя файлов можно в config/filesystems.php default
+Создание симлинка для доступа к storage в публичке
+php artisan storage:link
+
+
+
+
+
+
+
+
+
+

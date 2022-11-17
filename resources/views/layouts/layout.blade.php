@@ -49,7 +49,12 @@
             @endphp--}}
 
             @auth
-                <a href="#" class="text-white">{{ auth()->user()->name }}</a>
+                <a href="#" class="text-white">
+                    {{ auth()->user()->name }}
+                    @if(auth()->user()->avatar)
+                        <img src="{{asset('storage/' . auth()->user()->avatar)}}" alt="" height="50px">
+                    @endif
+                </a>
                 <a href="{{route('logout')}}" class="text-white">log out</a>
             @endauth
 
