@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -36,4 +37,35 @@ class UserController extends Controller
         //редирект на главную
         return redirect()->home();
     }
+
+
+    public function loginForm()
+    {
+        return view('user.login');
+    }
+
+    public function login(Request $request): RedirectResponse
+    {
+        //валидация
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        //авторизация
+        if (Auth::attempt([
+            'email' => $request->email,
+            'password' => $request->password,
+        ])){
+            return redirect()->home();
+        }
+        //back редиректит на предыдущую страницу
+        return redirect()->back()->with('error', 'Incorrect login or password');
+    }
+
+    public function logout(): RedirectResponse
+    {
+        Auth::logout();
+        return redirect()->route('login.create');
+    }
+
 }
