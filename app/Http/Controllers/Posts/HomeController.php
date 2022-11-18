@@ -87,7 +87,7 @@ class HomeController extends Controller
         /**
          * пагинация
          */
-        $posts = Post::orderBy('id', 'desc')->paginate(1);
+        $posts = Post::orderBy('id', 'desc')->paginate(3);
 
 
         $title = 'Posts list';
