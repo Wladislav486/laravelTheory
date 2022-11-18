@@ -31,7 +31,7 @@
 
 
             <div class="form-group">
-                <label for="avatar">confirm password</label>
+                <label for="avatar">avatar</label>
                 <input type="file" class="form-control-file" id="avatar" name="avatar">
             </div>
 

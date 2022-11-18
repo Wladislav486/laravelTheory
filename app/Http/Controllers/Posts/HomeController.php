@@ -84,6 +84,8 @@ class HomeController extends Controller
 //            Cache::put('posts', $posts);
 //        }
 
+
+        \Debugbar::warning($request);
         /**
          * пагинация
          */

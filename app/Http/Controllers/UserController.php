@@ -28,7 +28,7 @@ class UserController extends Controller
         //сохранение файла
         if($request->hasFile('avatar')){
             $dir = date('Y-m-d');
-            $path = $request->file('avatar')->store('images/' . $dir, 'public');
+            $path = $request->file('avatar')->store('images/' . $dir);
         }
         //регистрация
         $user = User::create([

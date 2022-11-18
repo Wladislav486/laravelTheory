@@ -1,0 +1,31 @@
+https://laravel.su/docs/7.x/logging
+
+отключить вывод ошибок .env - APP_DEBUG=false
+
+настройки
+config/logging.php
+
+можно переопределить папку хранения логов ошибок
+.env LOG_CHANNEL=daily - писать лог ошибок в файлы по датам
+
+Есть возможность использовать логирование для множества необходимых операций
+https://laravel.su/docs/7.x/logging#writing-log-messages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
