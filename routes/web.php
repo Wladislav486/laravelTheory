@@ -116,6 +116,10 @@ Route::group(['middleware'=> 'admin', 'prefix' => 'admin', 'namespace' => 'Admin
 });
 
 
+/**
+ * ViewComposer
+ */
+Route::get('/ViewComposer', 'ViewComposer\MainController@index');
 
 
 
