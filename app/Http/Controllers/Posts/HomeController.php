@@ -77,12 +77,17 @@ class HomeController extends Controller
 //        Cache::flush();
 
         //кеширование запросов к бд
-        if(Cache::has('posts')){
-            $posts = Cache::get('posts');
-        }else{
-            $posts = Post::orderBy('id', 'desc')->get();
-            Cache::put('posts', $posts);
-        }
+//        if(Cache::has('posts')){
+//            $posts = Cache::get('posts');
+//        }else{
+//            $posts = Post::orderBy('id', 'desc')->get();
+//            Cache::put('posts', $posts);
+//        }
+
+        /**
+         * пагинация
+         */
+        $posts = Post::orderBy('id', 'desc')->paginate(1);
 
 
         $title = 'Posts list';
