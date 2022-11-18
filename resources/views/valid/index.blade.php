@@ -35,6 +35,10 @@
                 </div>
             </div>
             @endforeach
+
+            <div class="col-md-12">
+                {{$posts->appends(['test' => request()->test])->fragment('foo')->links('vendor.pagination.my-pagination')}}
+            </div>
         </div>
     </div>
 </div>
