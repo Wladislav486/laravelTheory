@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Str;
 
 /**
  * Class Post
@@ -84,5 +85,25 @@ class Post extends Model
     {
         return \Carbon\Carbon::parse($this->created_at)->diffForHumans();
     }
+
+
+
+    /**
+     * mutator
+     */
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = Str::title($value);
+    }
+
+    /**
+     * Accessor
+     */
+    public function getTitleAttribute($value)
+    {
+
+        return Str::upper($value);
+    }
+
 
 }
