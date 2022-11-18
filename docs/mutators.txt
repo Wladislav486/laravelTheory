@@ -1,0 +1,15 @@
+https://laravel.su/docs/7.x/eloquent-mutators
+
+Accessors - событие перед получением полей(геттер)
+Mutators - событие перед записью полей(cеттер)
+
+Есть хелперы для работы со строкой
+https://laravel.su/docs/7.x/helpers#strings
+
+
+
+
+
+
+
+
