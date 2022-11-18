@@ -29,6 +29,6 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.mail')->attach(url('img/.giftCard.png'));
+        return $this->view('mail.mail');
     }
 }
